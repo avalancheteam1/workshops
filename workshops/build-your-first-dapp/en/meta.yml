@@ -1,0 +1,19 @@
+title: Build Your First dApp
+language: en
+authors:
+  - name: Avalanche Team1
+    url: https://team1.network
+translators: []
+maintainers: [Avalanche Team1]
+level: intermediate
+duration: 2 hours
+prerequisites: [getting-started]
+track: fundamentals
+order: 2
+last_updated: 2026-09-03
+tested_with:
+  foundry: 1.1.0
+  solidity: 0.8.28
+  ethers: 6.13.4
+links:
+  code: https://github.com/ava-labs/avalanche-starter-kit

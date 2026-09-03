@@ -1,26 +1,3 @@
----
-title: Erste Schritte mit Avalanche
-language: de
-authors:
-  - name: Avalanche Team1
-    url: https://team1.network
-translators:
-  - name: Avalanche Team1
-    url: https://team1.network
-maintainers: [Avalanche Team1]
-level: beginner
-duration: 45 Minuten
-prerequisites: []
-track: fundamentals
-order: 1
-last_updated: 2026-09-03
-tested_with:
-  core-wallet: Browser-Erweiterung
-translated_from: en@2026-09-03
-links:
-  docs: https://go.team1.network/docs
----
-
 # Erste Schritte mit Avalanche
 
 ## Überblick

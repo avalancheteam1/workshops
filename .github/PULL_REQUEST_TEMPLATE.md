@@ -7,13 +7,13 @@
 
 ## Checklist
 
-- [ ] Followed `templates/workshop/README.md` (frontmatter; Overview, Prerequisites, Workshop, Resources present)
-- [ ] Frontmatter complete: `title`, `language`, `authors`, `level`, `duration`, `last_updated`
+- [ ] Followed `templates/workshop/` (meta.yml + README with Overview, Prerequisites, Workshop, Resources)
+- [ ] `meta.yml` complete: `title`, `language`, `authors`, `level`, `duration`, `last_updated`
 - [ ] All links and image paths checked
 - [ ] Translation only: `translated_from: <lang>@<date>` matches the source file's language and `last_updated`
 - [ ] Improvement only: `last_updated` bumped
 - [ ] `python3 scripts/validate.py` passes locally (optional - CI runs it too)
-- [ ] I did not edit `README.md` (it is generated)
+- [ ] I did not edit the top-level `README.md` (it is generated)
 
 ## Notes
 

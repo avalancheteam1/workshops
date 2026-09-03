@@ -1,0 +1,17 @@
+title: Getting Started with Avalanche
+language: en
+authors:
+  - name: Avalanche Team1
+    url: https://team1.network
+translators: []
+maintainers: [Avalanche Team1]
+level: beginner
+duration: 45 minutes
+prerequisites: []
+track: fundamentals
+order: 1
+last_updated: 2026-09-03
+tested_with:
+  core-wallet: browser extension
+links:
+  docs: https://go.team1.network/docs

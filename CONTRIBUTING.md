@@ -5,19 +5,20 @@ Copy an existing workshop, change it, open a pull request. No approval needed up
 ## The one workflow
 
 1. Fork and clone this repository.
-2. Copy `templates/workshop/README.md` (or an existing workshop's README) to `workshops/<slug>/<lang>/README.md`. Shared images and code go in `workshops/<slug>/assets/`, beside the language folders, not inside them.
-3. Fill in the frontmatter and write the sections. Overview, Prerequisites, Workshop, and Resources are required, in that order. Learning objectives, Exercises, and Next steps are optional; the validator only warns when they are missing.
+2. Copy `templates/workshop/meta.yml` and `README.md` (or an existing workshop's) to `workshops/<slug>/<lang>/`. Shared images and code go in `workshops/<slug>/assets/`, beside the language folders, not inside them.
+3. Fill in `meta.yml` and write the README sections. Overview, Prerequisites, Workshop, and Resources are required, in that order. Learning objectives, Exercises, and Next steps are optional; the validator only warns when they are missing.
 4. Run `python3 scripts/validate.py` (needs `pip install pyyaml`). CI runs the same check.
 5. Open a pull request and tick the checklist in the template.
 
-Do not edit `README.md`. It is generated from the frontmatter after each merge.
+Do not edit the top-level `README.md`. It is generated from all `meta.yml` files after each merge and shows title, level, duration, authors, and last-updated date for every workshop. Workshop READMEs are plain Markdown and stay yours.
 
 ## Three kinds of contribution
 
 ### New workshop
 
 ```
-workshops/getting-started/en/README.md     ← the canonical English version
+workshops/getting-started/en/meta.yml      ← metadata (title, authors, level, ...)
+workshops/getting-started/en/README.md     ← the workshop text
 workshops/getting-started/assets/          ← images and code shared by all languages (optional)
 ```
 
@@ -29,6 +30,7 @@ workshops/getting-started/assets/          ← images and code shared by all lan
 ### Translation
 
 ```
+workshops/getting-started/de/meta.yml
 workshops/getting-started/de/README.md
 ```
 
@@ -41,17 +43,17 @@ workshops/getting-started/de/README.md
 ### Improvement
 
 ```
-workshops/getting-started/en/README.md   (edit in place)
+workshops/getting-started/en/README.md   (edit in place, bump last_updated in meta.yml)
 ```
 
 - Bump `last_updated` when content changes. If you verified against new tool versions, update `tested_with`.
 - Bumping `last_updated` in the original makes its translations show as outdated in the index. That is expected. Open a "translation wanted" issue or ping the translators if the change is substantial.
 
-## Frontmatter reference
+## meta.yml reference
 
 | Field | Required | Notes |
 |---|---|---|
-| `title` | yes | Also the `# ` heading of the file |
+| `title` | yes | Must equal the `# ` heading of README.md |
 | `language` | yes | Must equal the folder name |
 | `authors` | yes | List of people, see below |
 | `translators` | translations | List of people, see below |
@@ -78,7 +80,7 @@ authors:
 
 ## Archiving
 
-Set `archived: true` in the original file when a workshop is no longer maintained. It stays in the repo, moves to the "Archived" table in the index, and is excluded from staleness reports.
+Set `archived: true` in the original's `meta.yml` when a workshop is no longer maintained. It stays in the repo, moves to the "Archived" table in the index, and is excluded from staleness reports.
 
 ## Licensing
 

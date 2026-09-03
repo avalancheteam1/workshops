@@ -3,7 +3,7 @@
 
 - translation outdated: the source file's `last_updated` is newer than the date in `translated_from`
 - needs review: last_updated older than 12 months
-- archived: `archived: true` in frontmatter (never reported as stale)
+- archived: `archived: true` in meta.yml (never reported as stale)
 
 Usage:
   python3 scripts/check_staleness.py            # print markdown report
@@ -31,7 +31,7 @@ def source(fm):
 
 
 def status(path, fm, langs=None, today=None):
-    """One of: archived, outdated, review, current. `langs` maps lang → frontmatter for the same workshop."""
+    """One of: archived, outdated, review, current. `langs` maps lang → meta for the same workshop."""
     today = today or date.today()
     langs = langs or {}
     if fm is None:
@@ -50,7 +50,7 @@ def status(path, fm, langs=None, today=None):
 
 
 def grouped(root=ROOT):
-    """{slug: {lang: (path, frontmatter)}} for all parseable files."""
+    """{slug: {lang: (README path, meta)}} for all parseable files."""
     out = {}
     for path, fm, _ in load_workshops(root):
         if fm is not None:
