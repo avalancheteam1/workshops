@@ -17,4 +17,4 @@ Legend: ✅ current · ⚠️ outdated translation / needs review · 🗄 archiv
 | Workshop | Level | Duration | Authors | Last updated | Languages |
 |---|---|---|---|---|---|
 | [Getting Started with Avalanche](workshops/getting-started/en/README.md) | beginner | 45 minutes | [Avalanche Team1](https://team1.network) | 2026-09-03 | [de](workshops/getting-started/de/README.md) ✅ · [en](workshops/getting-started/en/README.md) ✅ |
-| [Build Your First dApp](workshops/build-your-first-dapp/en/README.md) | intermediate | 2 hours | [Avalanche Team1](https://team1.network) | 2026-09-03 | [en](workshops/build-your-first-dapp/en/README.md) ✅ |
+| [Build Your First dApp](workshops/build-your-first-dapp/en/README.md) | beginner | 2 hours | [Avalanche Team1](https://team1.network) | 2026-09-03 | [en](workshops/build-your-first-dapp/en/README.md) ✅ |
