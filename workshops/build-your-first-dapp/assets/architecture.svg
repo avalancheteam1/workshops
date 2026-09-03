@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="200" viewBox="0 0 640 200" font-family="system-ui, sans-serif" font-size="14">
+  <rect x="20" y="60" width="150" height="80" rx="8" fill="#fff" stroke="#e84142" stroke-width="2"/>
+  <text x="95" y="95" text-anchor="middle" font-weight="bold">index.html</text>
+  <text x="95" y="118" text-anchor="middle" fill="#555">ethers.js</text>
+  <rect x="245" y="60" width="150" height="80" rx="8" fill="#fff" stroke="#e84142" stroke-width="2"/>
+  <text x="320" y="95" text-anchor="middle" font-weight="bold">Wallet</text>
+  <text x="320" y="118" text-anchor="middle" fill="#555">Core / MetaMask</text>
+  <rect x="470" y="60" width="150" height="80" rx="8" fill="#fff" stroke="#e84142" stroke-width="2"/>
+  <text x="545" y="95" text-anchor="middle" font-weight="bold">Fuji C-Chain</text>
+  <text x="545" y="118" text-anchor="middle" fill="#555">Counter.sol</text>
+  <line x1="170" y1="100" x2="245" y2="100" stroke="#333" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="395" y1="100" x2="470" y2="100" stroke="#333" stroke-width="2" marker-end="url(#a)"/>
+  <text x="207" y="88" text-anchor="middle" fill="#333" font-size="12">sign</text>
+  <text x="432" y="88" text-anchor="middle" fill="#333" font-size="12">JSON-RPC</text>
+  <defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#333"/></marker></defs>
+  <text x="320" y="175" text-anchor="middle" fill="#555" font-size="12">Reads go straight to the RPC. Writes are signed by the wallet first.</text>
+</svg>

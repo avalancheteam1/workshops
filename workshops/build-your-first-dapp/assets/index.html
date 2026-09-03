@@ -1,0 +1,62 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Counter dApp</title>
+<style>body{font-family:system-ui;max-width:32rem;margin:3rem auto}button{padding:.5rem 1rem}</style>
+
+<h1>Counter on Fuji</h1>
+<p>Count: <strong id="count">…</strong></p>
+<button id="inc">Increment</button>
+<p id="status"></p>
+
+<script type="module">
+  import { ethers } from "https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.4/ethers.min.js";
+
+  const ADDRESS = "0xPASTE_YOUR_DEPLOYED_ADDRESS";
+  const ABI = [
+    "function count() view returns (uint256)",
+    "function increment()",
+    "event Incremented(address indexed by, uint256 newCount)",
+  ];
+  const FUJI = { chainId: "0xa869", chainName: "Avalanche Fuji C-Chain",
+    rpcUrls: ["https://api.avax-test.network/ext/bc/C/rpc"],
+    nativeCurrency: { name: "AVAX", symbol: "AVAX", decimals: 18 },
+    blockExplorerUrls: ["https://testnet.snowtrace.io"] };
+
+  const status = (m) => (document.getElementById("status").textContent = m);
+  if (!window.ethereum) {
+    status("No wallet found. Install Core or MetaMask to send transactions.");
+    document.getElementById("inc").disabled = true;
+  }
+
+  // Reads and events go straight to Fuji: no wallet, no chain confusion.
+  const reader = new ethers.Contract(ADDRESS, ABI, new ethers.JsonRpcProvider(FUJI.rpcUrls[0]));
+
+  async function refresh() {
+    document.getElementById("count").textContent = (await reader.count()).toString();
+  }
+
+  async function ensureFuji() {
+    try {
+      await window.ethereum.request({ method: "wallet_switchEthereumChain", params: [{ chainId: FUJI.chainId }] });
+    } catch (e) {
+      if (e.code !== 4902) throw e;               // 4902 = chain not added yet
+      await window.ethereum.request({ method: "wallet_addEthereumChain", params: [FUJI] });
+    }
+  }
+
+  document.getElementById("inc").onclick = async () => {
+    try {
+      await ensureFuji();
+      const signer = await new ethers.BrowserProvider(window.ethereum).getSigner();
+      const tx = await reader.connect(signer).increment();
+      status(`sent ${tx.hash}, waiting…`);
+      await tx.wait();
+      status("confirmed");
+      await refresh();
+    } catch (e) { status(e.shortMessage || e.message); }
+  };
+
+  reader.on("Incremented", (by, n) => status(`${by} → ${n}`));
+  refresh().catch((e) =>
+    status(`No Counter found at ${ADDRESS} on Fuji - check ADDRESS in index.html. ${e.shortMessage || e.message}`));
+</script>
