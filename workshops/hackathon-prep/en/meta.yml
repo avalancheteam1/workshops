@@ -1,0 +1,21 @@
+title: Hackathon Prep with Avalanche
+language: en
+authors:
+  - name: Avalanche Team1
+    url: https://team1.network
+translators: []
+maintainers: [Avalanche Team1]
+level: intermediate
+duration: 90 minutes + optional L1 lab
+prerequisites: [getting-started]
+track: hackathon
+order: 1
+last_updated: 2026-09-11
+tested_with:
+  foundry: 1.5.1
+  solidity: 0.8.24
+links:
+  academy: https://build.avax.network/academy
+  builder_console: https://build.avax.network/console/layer-1/create/create-chain
+  design_system: https://github.com/avalancheteam1/design-system/releases/tag/v2.1.0
+  foundry: https://getfoundry.sh/introduction/getting-started/
