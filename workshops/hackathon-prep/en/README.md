@@ -302,14 +302,14 @@ On Fuji, wrong network, missing gas and unimported tokens are the common failure
 ## Next steps
 
 - Build your first browser-connected product with [Build Your First dApp](../../build-your-first-dapp/en/README.md).
-- Continue through [Avalanche Academy](https://build.avax.network/academy).
+- Continue through [Avalanche Academy](https://go.team1.network/academy).
 - Use the [Builder Console](https://build.avax.network/console/layer-1/create/create-chain) for an L1 testnet experiment.
 - Turn the event brief into a public README before the team begins the final build session.
 
 ## Resources
 
-- [Avalanche Academy](https://build.avax.network/academy)
-- [Avalanche Builder Hub](https://build.avax.network)
+- [Avalanche Academy](https://go.team1.network/academy)
+- [Avalanche Builder Hub](https://go.team1.network/italy-builder)
 - [Primary Network documentation](https://build.avax.network/docs/primary-network)
 - [Avalanche L1 documentation](https://build.avax.network/docs/avalanche-l1s)
 - [Snowman consensus](https://build.avax.network/docs/primary-network/avalanche-consensus)
