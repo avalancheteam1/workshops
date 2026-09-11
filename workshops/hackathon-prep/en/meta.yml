@@ -1,0 +1,23 @@
+# Workshop metadata. Only this file is read by the validator and the index; the README stays plain Markdown.
+title: Hackathon Prep with Avalanche
+language: en
+authors:                       # a plain name, or name + one profile link
+  - name: Avalanche Team1
+    url: https://team1.network
+translators: []                # translations only: who translated this file
+maintainers: [Avalanche Team1]
+level: intermediate            # beginner | intermediate | advanced
+duration: 3 hours + optional L1 lab
+prerequisites: [getting-started]  # slugs of workshops to complete first, e.g. [getting-started]
+track: hackathon               # optional: groups workshops into a learning path
+order: 1                       # optional: position within its level in the index (lower first)
+last_updated: 2026-09-11
+tested_with:                   # optional: any tool → version this was last verified against
+  foundry: 1.5.1
+  solidity: 0.8.24
+links:                         # optional: any key → URL; slides, code, recordings, blog posts live outside this repo
+  academy: https://build.avax.network/academy
+  builder_hub: https://build.avax.network
+  builder_console: https://build.avax.network/console/layer-1/create/create-chain
+  design_system: https://github.com/avalancheteam1/design-system/releases/tag/v2.1.0
+  foundry: https://getfoundry.sh/introduction/getting-started/
