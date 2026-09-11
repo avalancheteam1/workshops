@@ -16,8 +16,8 @@ tested_with:                   # optional: any tool → version this was last ve
   foundry: 1.5.1
   solidity: 0.8.24
 links:                         # optional: any key → URL; slides, code, recordings, blog posts live outside this repo
-  academy: https://build.avax.network/academy
-  builder_hub: https://build.avax.network
+  academy: https://go.team1.network/academy
+  builder_hub: https://go.team1.network/italy-builder
   builder_console: https://build.avax.network/console/layer-1/create/create-chain
   design_system: https://github.com/avalancheteam1/design-system/releases/tag/v2.1.0
   foundry: https://getfoundry.sh/introduction/getting-started/
