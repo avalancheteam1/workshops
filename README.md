@@ -18,3 +18,4 @@ Legend: ✅ current · ⚠️ outdated translation / needs review · 🗄 archiv
 |---|---|---|---|---|---|
 | [Getting Started with Avalanche](workshops/getting-started/en/README.md) | beginner | 45 minutes | [Avalanche Team1](https://team1.network) | 2026-09-03 | [de](workshops/getting-started/de/README.md) ✅ · [en](workshops/getting-started/en/README.md) ✅ |
 | [Build Your First dApp](workshops/build-your-first-dapp/en/README.md) | beginner | 1 hour | [Avalanche Team1](https://team1.network) | 2026-09-03 | [en](workshops/build-your-first-dapp/en/README.md) ✅ |
+| [Hackathon Prep with Avalanche](workshops/hackathon-prep/en/README.md) | intermediate | 3 hours + optional L1 lab | [Avalanche Team1](https://team1.network) | 2026-09-11 | [en](workshops/hackathon-prep/en/README.md) ✅ |
