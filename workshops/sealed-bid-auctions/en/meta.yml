@@ -1,0 +1,19 @@
+title: Sealed-bid Auctions on a Public Blockchain
+language: en
+authors:
+  - name: Ahmed Ali
+    url: https://github.com/ahmedali8
+translators: []
+maintainers: [Ahmed Ali]
+level: intermediate
+duration: 1 hour
+prerequisites: [getting-started]
+track: fundamentals
+order: 2
+last_updated: 2026-09-24
+tested_with:
+  foundry: 1.8.3
+  solidity: 0.8.36
+links:
+  slides: https://github.com/ahmedali8/avalancheteam1-builders-brunch-workshops/blob/main/packages/sealed-bid-auctions/part1-public-blockchain/builders-brunch-20260923.pdf
+  code: https://github.com/ahmedali8/avalancheteam1-builders-brunch-workshops/tree/main/packages/sealed-bid-auctions
