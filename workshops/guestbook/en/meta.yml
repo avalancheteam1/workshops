@@ -1,0 +1,19 @@
+title: On-chain Guestbook
+language: en
+authors:
+  - name: Ahmed Ali
+    url: https://github.com/ahmedali8
+translators: []
+maintainers: [Ahmed Ali]
+level: beginner
+duration: 30 minutes
+prerequisites: [getting-started]
+track: fundamentals
+order: 3
+last_updated: 2026-09-24
+tested_with:
+  foundry: 1.8.3
+  solidity: 0.8.36
+  next: 16.2.10
+links:
+  code: https://github.com/ahmedali8/avalancheteam1-builders-brunch-workshops/tree/main/packages/guestbook
