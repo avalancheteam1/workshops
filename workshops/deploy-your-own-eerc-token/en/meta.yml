@@ -1,0 +1,26 @@
+title: Deploy Your Own eERC Token
+language: en
+authors:
+  - name: Abhishek Tripathi
+    url: https://github.com/XavierOP877
+  - name: Avalanche Team1
+    url: https://team1.network
+translators: []
+maintainers: [Avalanche Team1]
+level: advanced
+duration: 2 hours + 30 minutes of pre-work (Parts 2 and 3)
+prerequisites: [build-your-first-dapp]
+track: privacy
+order: 1
+last_updated: 2026-10-05
+tested_with:
+  node: 22.14.0
+  circom: 2.1.9
+  hardhat: 2.22.15
+  hardhat-zkit: 0.5.15
+  solidity: 0.8.27
+  encryptederc: 8dc98cd
+links:
+  code: https://github.com/ava-labs/EncryptedERC
+  docs: https://docs.avacloud.io/encrypted-erc
+  academy: https://build.avax.network/academy/blockchain/encrypted-erc
