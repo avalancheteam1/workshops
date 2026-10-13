@@ -8,7 +8,7 @@ This part does exactly that. You launch a permissioned Avalanche L1 on your mach
 
 > **Public vs private is not about secrecy. It is about who is in the room.**
 
-The L1's genesis and the allowlist precompile interface are in [`assets/`](../assets/). The contracts are Part 1's, unchanged: [`NaiveAuction.sol`](../../sealed-bid-auctions/assets/NaiveAuction.sol) and [`SealedBidAuction.sol`](../../sealed-bid-auctions/assets/SealedBidAuction.sol). The full project (tests, deploy scripts, justfile) lives in the [code repository](https://github.com/ahmedali8/avalancheteam1-builders-brunch-workshops/tree/main/packages/sealed-bid-auctions/part2-permissioned-l1).
+The L1's genesis and the allowlist precompile interface are in [`assets/`](../assets/). The contracts are Part 1's, unchanged: [`NaiveAuction.sol`](../../sealed-bid-auctions/assets/NaiveAuction.sol) and [`SealedBidAuction.sol`](../../sealed-bid-auctions/assets/SealedBidAuction.sol). The full project (tests, deploy scripts, justfile) and the slides live in the [code repository](https://github.com/ahmedali8/avalancheteam1-builders-brunch-workshops/tree/main/packages/sealed-bid-auctions/part2-permissioned-l1).
 
 ## Learning objectives
 
@@ -174,6 +174,7 @@ just l1-reset                  # throw it away and boot a fresh one from genesis
 
 ## Resources
 
+- [Slides](https://github.com/ahmedali8/avalancheteam1-builders-brunch-workshops/blob/main/packages/sealed-bid-auctions/part2-permissioned-l1/builders-brunch-20261007.pdf)
 - [Code repository](https://github.com/ahmedali8/avalancheteam1-builders-brunch-workshops/tree/main/packages/sealed-bid-auctions/part2-permissioned-l1)
 - [Part 1: Sealed-bid Auctions on a Public Blockchain](../../sealed-bid-auctions/en/README.md)
 - [avalanche-cli](https://build.avax.network/docs/tooling/avalanche-cli)

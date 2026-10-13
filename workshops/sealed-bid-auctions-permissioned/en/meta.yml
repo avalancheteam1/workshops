@@ -17,4 +17,5 @@ tested_with:
   avalanche-cli: 1.9.6
   subnet-evm: 0.8.0
 links:
+  slides: https://github.com/ahmedali8/avalancheteam1-builders-brunch-workshops/blob/main/packages/sealed-bid-auctions/part2-permissioned-l1/builders-brunch-20261007.pdf
   code: https://github.com/ahmedali8/avalancheteam1-builders-brunch-workshops/tree/main/packages/sealed-bid-auctions/part2-permissioned-l1
