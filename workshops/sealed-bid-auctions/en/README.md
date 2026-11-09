@@ -153,7 +153,7 @@ just peek <auction> <bidder> https://api.avax-test.network/ext/bc/C/rpc
 
 ## Next steps
 
-- Part 2 runs the same auction on a permissioned Avalanche L1, where the question becomes who is in the room rather than what is encrypted. Coming later.
+- [Part 2](../../sealed-bid-auctions-permissioned/en/README.md) runs the same auction on a permissioned Avalanche L1, where the question becomes who is in the room rather than what is encrypted.
 
 ## Resources
 

@@ -1,0 +1,22 @@
+title: Sealed-bid Auctions on a Permissioned L1
+language: en
+authors:
+  - name: Ahmed Ali
+    url: https://github.com/ahmedali8
+translators: []
+maintainers: [Ahmed Ali]
+level: intermediate
+duration: 1 hour
+prerequisites: [sealed-bid-auctions]
+track: fundamentals
+order: 3
+last_updated: 2026-11-09
+tested_with:
+  foundry: 1.9.0
+  solidity: 0.8.36
+  avalanche-cli: 1.9.7
+  subnet-evm: 0.8.0
+  avalanchego: 1.14.0
+links:
+  slides: https://github.com/ahmedali8/avalancheteam1-builders-brunch-workshops/blob/main/packages/sealed-bid-auctions/part2-permissioned-l1/builders-brunch-20261007.pdf
+  code: https://github.com/ahmedali8/avalancheteam1-builders-brunch-workshops/tree/main/packages/sealed-bid-auctions/part2-permissioned-l1

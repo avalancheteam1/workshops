@@ -10,7 +10,7 @@ duration: 1 hour
 prerequisites: [getting-started]
 track: fundamentals
 order: 2
-last_updated: 2026-09-24
+last_updated: 2026-10-13
 tested_with:
   foundry: 1.8.3
   solidity: 0.8.36
