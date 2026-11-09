@@ -21,8 +21,9 @@ The L1's genesis and the allowlist precompile interface are in [`assets/`](../as
 
 - Completed [Sealed-bid Auctions on a Public Blockchain](../../sealed-bid-auctions/en/README.md).
 - The Part 1 tools: [Foundry](https://book.getfoundry.sh), [Bun](https://bun.com/docs/installation) and [just](https://just.systems/man/en/packages.html).
-- [avalanche-cli](https://build.avax.network/docs/tooling/avalanche-cli). Tested with 1.9.6, which runs Subnet-EVM v0.8.0.
+- [avalanche-cli](https://build.avax.network/docs/tooling/avalanche-cli). Tested with 1.9.7, which runs Subnet-EVM v0.8.0 on AvalancheGo v1.14.0.
 - [jq](https://jqlang.org/download/): `brew install jq`
+- `openssl`, for `just salt` (preinstalled on macOS and most Linux distributions).
 
 ## Workshop
 
@@ -49,7 +50,7 @@ There are four people in this story. They are anvil's well-known accounts (publi
 
 The whole chain is described by one file, [`genesis.json`](../assets/genesis.json). It starts from avalanche-cli's defaults for a proof-of-authority L1, which carry the validator manager contracts, and changes four things:
 
-- **Who may transact.** The transaction allowlist names `admin` as its admin and enables `alice` and `bob`. Nobody else can send a transaction.
+- **Who may transact.** The transaction allowlist names `admin` as its only admin and enables `alice` and `bob`. It also enables one more account, `0x8db9…52FC`: avalanche-cli's well-known local key, "ewoq". While deploying the L1, the CLI signs the transactions that set up the validator manager contract with that key, so without it the deploy fails. It can transact but cannot let anyone else in. Nobody else can send a transaction.
 - **Who may deploy.** The deployer allowlist names only `admin`.
 - **Who starts with funds.** All four accounts get 1000 BRUNCH, the chain's own token, including `carol`, so it is clear that money alone does not get you in.
 - **What a transaction costs.** The base fee floor is 1 wei and block gas cost is off, so nobody needs a faucet.
@@ -63,6 +64,8 @@ just l1-up
 ```
 
 That takes about a minute: it starts a local Avalanche network, creates the L1 on it and brings up its validator. `just l1-rpc` prints its RPC URL; every other recipe finds it on its own.
+
+> **The local network is shared.** avalanche-cli runs one local network per machine user, and every local L1 you have deployed lives on it, including ones from other labs. `l1-stop` and `l1-start` pause and resume all of them, and `l1-reset` deletes all of their state (see [Looking after the chain](#looking-after-the-chain)). Run this workshop in a disposable environment where no other local L1 matters to you, such as a fresh machine user or VM.
 
 ### Part 3: Deploy the same contracts
 
@@ -118,6 +121,16 @@ just peek <auction> 0x70997970C51812dc3A010C7d01b50e0d17dc79C8
 
 The allowlist stops strangers *sending transactions*. Reading storage is not a transaction, and Bob is not a stranger. Your own chain decides who is in the room; it does not hide anything from the people in it. In an auction, the people in the room are exactly the people who must not see your bid.
 
+It is worse than that: you don't even need to be in the room. `peek` signs nothing and sends no transaction, so it doesn't run *as* anyone. Carol, who still can't transact, gets the same answer:
+
+```sh
+just roles carol               # transact : none
+just peek <auction> 0x70997970C51812dc3A010C7d01b50e0d17dc79C8
+# bid    : 3000000000000000000 wei  =  3.000000000000000000 BRUNCH
+```
+
+The allowlists control who may *write*. They do not authenticate RPC calls or make the network private: anyone who can reach the RPC endpoint can read all of the chain's state, allowlisted or not. Keeping outsiders from reading takes access control in front of the RPC, which is infrastructure, not something the chain's genesis sets.
+
 ### Part 6: Commit-reveal still holds
 
 So the Part 1 fix carries over unchanged. Deploy the sealed auction with short phases:
@@ -126,7 +139,7 @@ So the Part 1 fix carries over unchanged. Deploy the sealed auction with short p
 COMMIT_SECONDS=120 REVEAL_SECONDS=120 just deploy-sealed
 ```
 
-Each bidder makes a secret salt, builds a commitment locally (that computation never touches the chain) and commits it with the 0.01 BRUNCH deposit:
+Each bidder makes a secret salt, builds a commitment locally (that computation never touches the chain) and commits it with the 0.01 BRUNCH deposit. `just salt` prints 32 random bytes from `openssl rand -hex 32` as a `0x`-prefixed `bytes32`, a cryptographically secure source: plausible bids are a small set, so a guessable salt would let anyone brute-force the bid out of the commitment.
 
 ```sh
 just salt                                              # keep the output
@@ -151,14 +164,14 @@ just withdraw <auction> admin
 Check what all of this cost the admin:
 
 ```sh
-just roles admin               # balance : 999.9999999999996… BRUNCH
+just roles admin               # balance : 1002.9999999999989… BRUNCH
 ```
 
-A bid costs about 90,000 wei. That's not free (every transaction still pays the 1 wei base fee per unit of gas), but nobody needs a faucet. One catch: the node still *suggests* a 150 gwei tip, and wallets take the suggestion. The recipes ask for no tip, which is why they pay almost nothing.
+That is the 1000 BRUNCH the admin started with, plus Alice's 3 BRUNCH winning bid, minus about 0.000000000001 BRUNCH in fees for everything the admin sent. A bid costs about 90,000 wei. That's not free (every transaction still pays the 1 wei base fee per unit of gas), but nobody needs a faucet. One catch: the node still *suggests* a 150 gwei tip, and wallets take the suggestion. The recipes ask for no tip, which is why they pay almost nothing.
 
 | Your own chain bought | It did not buy |
 | --- | --- |
-| Who can transact, who can deploy, who validates | Secrecy from anyone already inside |
+| Who can transact, who can deploy, who validates | Secrecy from anyone who can reach the RPC |
 | Fees the operator chooses | A reason to drop commit-reveal |
 | A chain you can reset, upgrade and configure | |
 
@@ -167,10 +180,12 @@ Hashing hides a bid until it is revealed. Hiding it for good takes encryption.
 ### Looking after the chain
 
 ```sh
-just l1-stop                   # pause it, keeping its state
+just l1-stop                   # pause the local network, keeping its state
 just l1-start                  # resume, in seconds
-just l1-reset                  # throw it away and boot a fresh one from genesis
+just l1-reset                  # wipe the local network and boot this L1 fresh from genesis
 ```
+
+All three act on the whole local network, not just this L1. `l1-reset` runs `avalanche network clean`, which stops the network and deletes the state of **every** local L1 deployed on it, including ones from other labs. Only run it in a disposable environment where nothing else on the local network matters to you.
 
 ## Resources
 
