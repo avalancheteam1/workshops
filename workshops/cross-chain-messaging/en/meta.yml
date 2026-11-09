@@ -1,0 +1,23 @@
+title: Cross-chain Messaging Between Two L1s
+language: en
+authors:
+  - name: Ahmed Ali
+    url: https://github.com/ahmedali8
+translators: []
+maintainers: [Ahmed Ali]
+level: intermediate
+duration: 30 minutes
+prerequisites: [getting-started]
+track: interoperability
+order: 1
+last_updated: 2026-11-09
+tested_with:
+  foundry: 1.9.0
+  solidity: 0.8.38
+  avalanche-cli: 1.9.7
+  avalanchego: 1.14.2
+  subnet-evm: 1.14.2
+  icm-relayer: 1.7.4
+links:
+  slides: https://github.com/ahmedali8/avalancheteam1-builders-brunch-workshops/blob/main/packages/cross-chain-messaging/two-local-l1s/builders-brunch-20261104.pdf
+  code: https://github.com/ahmedali8/avalancheteam1-builders-brunch-workshops/tree/main/packages/cross-chain-messaging/two-local-l1s
