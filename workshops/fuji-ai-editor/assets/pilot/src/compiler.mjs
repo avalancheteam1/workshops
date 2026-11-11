@@ -1,0 +1,13 @@
+import { readFileSync } from 'node:fs';
+import solc from 'solc';
+import { createHash } from 'node:crypto';
+const source = readFileSync(process.argv[2], 'utf8');
+if (Buffer.byteLength(source) > 65536) throw Error('Source exceeds 64 KiB');
+if (!solc.version().startsWith('0.8.28+')) throw Error('Compiler version mismatch');
+const settings = { optimizer: { enabled: true, runs: 200 }, evmVersion: 'cancun', outputSelection: { '*': { '*': ['abi', 'evm.bytecode.object', 'evm.deployedBytecode.object'] } } };
+const output = JSON.parse(solc.compile(JSON.stringify({ language: 'Solidity', sources: { 'Counter.sol': { content: source } }, settings })));
+const errors = (output.errors || []).filter(e => e.severity === 'error');
+if (errors.length) throw Error(errors.map(e => e.formattedMessage).join('\n'));
+const c = output.contracts?.['Counter.sol']?.Counter;
+if (!c?.evm.bytecode.object) throw Error('Counter contract is missing');
+console.log(JSON.stringify({ source, sourceHash: createHash('sha256').update(source).digest('hex'), compiler: solc.version(), settings, abi: c.abi, bytecode: `0x${c.evm.bytecode.object}`, runtimeBytecode: `0x${c.evm.deployedBytecode.object}` }));

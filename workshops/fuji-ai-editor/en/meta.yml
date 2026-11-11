@@ -1,0 +1,21 @@
+title: Deploy to Fuji from One Chat Prompt
+language: en
+authors:
+  - name: Giacomo Barbieri
+    url: https://github.com/iJaack
+translators: []
+maintainers: [Giacomo Barbieri]
+level: beginner
+duration: 30 minutes after installation and test-wallet setup
+prerequisites: [getting-started]
+track: fundamentals
+order: 4
+last_updated: 2026-11-11
+tested_with:
+  node: 26.8.1
+  pnpm: 11.24.0
+  solidity: 0.8.28
+  anvil: 1.5.1
+  avakit-core: 0.2.1
+links:
+  docs: https://avakit.dev/docs/mcp

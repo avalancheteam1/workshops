@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Team1 Fuji Deployment Pilot</title><meta name="description" content="Review and sign your Fuji testnet counter deployment locally."><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-icon.png"><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body><main>
+<p class="eyebrow">team1 · local pilot · testnet only</p><h1>Your counter, on Fuji.</h1>
+<p>Review the contract and deployment before your wallet signs. This app never asks for your private key or recovery phrase.</p>
+<ol class="steps"><li>Connect test wallet</li><li>Review deployment</li><li>Approve in wallet</li></ol>
+<p id="network"></p><p id="status" role="status" aria-live="polite">Loading your deployment…</p>
+<button id="connect">Connect test wallet</button>
+<section id="review" hidden><h2>Deployment review</h2><dl id="summary"></dl><p><a id="download">Download full manifest</a></p><button id="deploy">Review and deploy on Fuji</button></section>
+<section><h2>Contract source</h2><details><summary>Read the complete counter contract</summary><pre id="source"></pre></details></section>
+<section id="recovery"><h2>Check an interrupted deployment</h2><p>If you already approved a wallet request, check its status. Do not deploy it again.</p><button id="refresh">Check status</button><label for="hash">Transaction hash from your wallet, if the request was interrupted</label><input id="hash" autocomplete="off" spellcheck="false" placeholder="0x…"><button id="recover">Recover transaction</button></section>
+<p class="footnote">Your counter owner can change its number. It has no token, payment or upgrade functions. Mainnet requires a separate reviewed release.</p>
+</main></body></html>

@@ -1,0 +1,19 @@
+{
+  "manifest_version": "0.3",
+  "name": "team1-fuji-pilot",
+  "display_name": "Team1 Fuji Pilot",
+  "version": "0.1.0",
+  "description": "Ask for a counter on Avalanche Fuji, then review and sign in your wallet.",
+  "long_description": "Local pilot: one owner-controlled counter starter, a pinned compiler, a downloadable deployment manifest and interrupted-transaction recovery. No private keys, API keys, AI editor or terminal commands are required for a Claude Desktop user after installing this bundle. A browser wallet with Fuji test AVAX is required. Mainnet is deliberately unavailable and needs a separate reviewed release.",
+  "author": { "name": "Giacomo Barbieri", "url": "https://github.com/iJaack" },
+  "repository": { "type": "git", "url": "https://github.com/avalancheteam1/workshops" },
+  "license": "MIT",
+  "server": { "type": "node", "entry_point": "src/index.mjs", "mcp_config": { "command": "node", "args": ["${__dirname}/src/index.mjs"] } },
+  "tools": [
+    { "name": "prepare_deployment", "description": "Prepare the bundled counter on Fuji and return its human wallet signing link." },
+    { "name": "deployment_status", "description": "Reconcile a prepared deployment without sending another transaction." },
+    { "name": "avalanche_help", "description": "Read pilot help and AvaKit-based Fuji configuration." }
+  ],
+  "keywords": ["avalanche", "fuji", "testnet", "wallet"],
+  "compatibility": { "platforms": ["darwin", "linux"], "runtimes": { "node": ">=20.11.0" } }
+}
